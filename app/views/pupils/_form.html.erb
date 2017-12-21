@@ -1,0 +1,47 @@
+<%= form_with(model: pupil, local: true) do |form| %>
+  <% if pupil.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pupil.errors.count, "error") %> prohibited this pupil from being saved:</h2>
+
+      <ul>
+      <% pupil.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :pupil_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :surname %>
+    <%= form.text_field :surname, id: :pupil_surname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :legajo %>
+    <%= form.text_field :legajo, id: :pupil_legajo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dni %>
+    <%= form.number_field :dni, id: :pupil_dni %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :pupil_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_id %>
+    <%= form.text_field :course_id, id: :pupil_course_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
