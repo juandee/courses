@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>Fecha:</strong>
   <%= @exam.date %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Titulo:</strong>
   <%= @exam.title %>
 </p>
 
 <p>
-  <strong>Min grade:</strong>
+  <strong>Nota minima de aprobacion:</strong>
   <%= @exam.min_grade %>
 </p>
 
 <p>
-  <strong>Course:</strong>
+  <strong>Curso:</strong>
   <%= @exam.course.title %>
 </p>
 
-<%= link_to 'Edit', edit_course_exam_path(@exam.course,@exam) %> |
-<%= link_to 'Back', course_exams_path(@exam.course) %>
+<%= link_to 'Editar', edit_course_exam_path(@exam.course,@exam) %> |
+<%= link_to 'Atras', course_exams_path(@exam.course) %>

@@ -1,6 +1,6 @@
-<h1>Editing Grade</h1>
+<h1>Editar nota</h1>
 
 <%= render 'form', grade: @grade %>
 
-<%= link_to 'Show', @grade %> |
-<%= link_to 'Back', grades_path %>
+<%= link_to 'Mostrar', course_exam_grade_path(@grade) %> |
+<%= link_to 'Atras', course_exam_grades_path(@exam.course,@exam,@grade) %>

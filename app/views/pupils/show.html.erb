@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @pupil.name %>
 </p>
 
 <p>
-  <strong>Surname:</strong>
+  <strong>Apellido:</strong>
   <%= @pupil.surname %>
 </p>
 
@@ -26,9 +26,9 @@
 </p>
 
 <p>
-  <strong>Course:</strong>
+  <strong>Cursada:</strong>
   <%= @pupil.course.title %>
 </p>
 
-<%= link_to 'Edit', edit_course_pupil_path(@pupil.course,@pupil) %> |
-<%= link_to 'Back', course_pupils_path(@pupil.course) %>
+<%= link_to 'Editar', edit_course_pupil_path(@pupil.course,@pupil) %> |
+<%= link_to 'Atras', course_pupils_path(@pupil.course) %>

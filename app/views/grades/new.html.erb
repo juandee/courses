@@ -1,5 +1,5 @@
-<h1>New Grade</h1>
+<h1>Nueva nota</h1>
 
 <%= render 'form', grade: @grade %>
 
-<%= link_to 'Back', grades_path %>
+<%= link_to 'Back', course_exam_grades_path(@exam.course,@exam) %>

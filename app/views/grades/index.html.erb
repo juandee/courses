@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Grades</h1>
+<h1>Calificaciones</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Grade</th>
-      <th>Exam</th>
-      <th>Pupil</th>
+      <th>Nota</th>
+      <th>Examen</th>
+      <th>Alumno</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,11 +16,11 @@
     <% @grades.each do |grade| %>
       <tr>
         <td><%= grade.grade %></td>
-        <td><%= grade.exam %></td>
-        <td><%= grade.pupil %></td>
-        <td><%= link_to 'Show', grade %></td>
-        <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
-        <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= grade.exam.title %></td>
+        <td><%= grade.pupil.name + ' ' + grade.pupil.surname %></td>
+        <td><%= link_to 'Mostrar', course_exam_grade_path(@exam.course,@exam,grade) %></td>
+        <td><%= link_to 'Editar', edit_course_exam_grade_path(@exam.course,@exam,grade) %></td>
+        <td><%= link_to 'Eliminar', course_exam_grade_path(@exam.course,@exam,grade), method: :delete, data: { confirm: 'Estas seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Grade', new_grade_path %>
+<%= link_to 'Agregar nota', new_course_exam_grade_path %>

@@ -7,13 +7,13 @@
 
 <p>
   <strong>Exam:</strong>
-  <%= @grade.exam %>
+  <%= @grade.exam.title %>
 </p>
 
 <p>
   <strong>Pupil:</strong>
-  <%= @grade.pupil %>
+  <%= @grade.pupil.name + ' ' + @grade.pupil.surname %>
 </p>
 
-<%= link_to 'Edit', edit_grade_path(@grade) %> |
-<%= link_to 'Back', grades_path %>
+<%= link_to 'Editar', edit_course_exam_grade_path(@exam.course,@exam,@grade) %> |
+<%= link_to 'Atras', course_exam_grades_path(@exam.course,@exam) %>

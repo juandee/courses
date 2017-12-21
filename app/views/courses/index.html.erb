@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Courses</h1>
+<h1>Cursos</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Year</th>
-      <th>Title</th>
+      <th>Año</th>
+      <th>Titulo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= course.year %></td>
         <td><%= course.title %></td>
-        <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', course %></td>
+        <td><%= link_to 'Editar', edit_course_path(course) %></td>
+        <td><%= link_to 'Eliminar', course, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Course', new_course_path %>
+<%= link_to 'Agregar curso', new_course_path %>
