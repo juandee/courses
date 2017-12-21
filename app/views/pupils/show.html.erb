@@ -27,8 +27,8 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @pupil.course %>
+  <%= @pupil.course.title %>
 </p>
 
-<%= link_to 'Edit', edit_pupil_path(@pupil) %> |
-<%= link_to 'Back', pupils_path %>
+<%= link_to 'Edit', edit_course_pupil_path(@pupil.course,@pupil) %> |
+<%= link_to 'Back', course_pupils_path(@pupil.course) %>

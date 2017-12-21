@@ -1,4 +1,4 @@
-<%= form_with(model: exam, local: true) do |form| %>
+<%= form_with(model: [@course,exam], local: true) do |form| %>
   <% if exam.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
@@ -26,10 +26,10 @@
     <%= form.number_field :min_grade, id: :exam_min_grade %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :course_id %>
     <%= form.text_field :course_id, id: :exam_course_id %>
-  </div>
+  </div> -->
 
   <div class="actions">
     <%= form.submit %>

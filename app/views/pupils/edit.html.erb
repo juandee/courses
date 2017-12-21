@@ -2,5 +2,5 @@
 
 <%= render 'form', pupil: @pupil %>
 
-<%= link_to 'Show', @pupil %> |
-<%= link_to 'Back', pupils_path %>
+<%= link_to 'Show', course_pupil_path(@pupil.course,@pupil) %> |
+<%= link_to 'Back', course_pupils_path(@pupil.course) %>

@@ -19,10 +19,10 @@
         <td><%= exam.date %></td>
         <td><%= exam.title %></td>
         <td><%= exam.min_grade %></td>
-        <td><%= exam.course %></td>
-        <td><%= link_to 'Show', exam %></td>
-        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
-        <td><%= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= exam.course.title %></td>
+        <td><%= link_to 'Show', course_exam_path(@course,exam) %></td>
+        <td><%= link_to 'Edit', edit_course_exam_path(@course,exam) %></td>
+        <td><%= link_to 'Destroy', course_exam_path(@course,exam), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Exam', new_exam_path %>
+<%= link_to 'New Exam', new_course_exam_path %>

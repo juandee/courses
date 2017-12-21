@@ -17,8 +17,8 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @exam.course %>
+  <%= @exam.course.title %>
 </p>
 
-<%= link_to 'Edit', edit_exam_path(@exam) %> |
-<%= link_to 'Back', exams_path %>
+<%= link_to 'Edit', edit_course_exam_path(@exam.course,@exam) %> |
+<%= link_to 'Back', course_exams_path(@exam.course) %>

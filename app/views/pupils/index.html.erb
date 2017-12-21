@@ -23,10 +23,10 @@
         <td><%= pupil.legajo %></td>
         <td><%= pupil.dni %></td>
         <td><%= pupil.email %></td>
-        <td><%= pupil.course %></td>
-        <td><%= link_to 'Show', pupil %></td>
-        <td><%= link_to 'Edit', edit_pupil_path(pupil) %></td>
-        <td><%= link_to 'Destroy', pupil, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= pupil.course.title %></td>
+        <td><%= link_to 'Show', course_pupil_path(@course,pupil) %></td>
+        <td><%= link_to 'Edit', edit_course_pupil_path(@course,pupil) %></td>
+        <td><%= link_to 'Destroy', course_pupil_path(@course,pupil), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Pupil', new_pupil_path %>
+<%= link_to 'New Pupil', new_course_pupil_path %>

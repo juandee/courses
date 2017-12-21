@@ -1,10 +1,10 @@
 class PupilsController < ApplicationController
   before_action :set_pupil, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_course
   # GET /pupils
   # GET /pupils.json
   def index
-    @pupils = Pupil.all
+    @pupils = @course.pupils
   end
 
   # GET /pupils/1
@@ -24,11 +24,11 @@ class PupilsController < ApplicationController
   # POST /pupils
   # POST /pupils.json
   def create
-    @pupil = Pupil.new(pupil_params)
+    @pupil = @course.pupils.new(pupil_params)
 
     respond_to do |format|
       if @pupil.save
-        format.html { redirect_to @pupil, notice: 'Pupil was successfully created.' }
+        format.html { redirect_to course_pupil_path(@course,@pupil), notice: 'Pupil was successfully created.' }
         format.json { render :show, status: :created, location: @pupil }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PupilsController < ApplicationController
   def update
     respond_to do |format|
       if @pupil.update(pupil_params)
-        format.html { redirect_to @pupil, notice: 'Pupil was successfully updated.' }
+        format.html { redirect_to course_pupil_path(@course,@pupil), notice: 'Pupil was successfully updated.' }
         format.json { render :show, status: :ok, location: @pupil }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class PupilsController < ApplicationController
   def destroy
     @pupil.destroy
     respond_to do |format|
-      format.html { redirect_to pupils_url, notice: 'Pupil was successfully destroyed.' }
+      format.html { redirect_to course_pupils_url, notice: 'Pupil was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +65,10 @@ class PupilsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pupil
       @pupil = Pupil.find(params[:id])
+    end
+
+    def set_course
+      @course = Course.find(params[:course_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

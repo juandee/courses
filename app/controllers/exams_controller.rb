@@ -1,10 +1,10 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_course
   # GET /exams
   # GET /exams.json
   def index
-    @exams = Exam.all
+    @exams = @course.exams
   end
 
   # GET /exams/1
@@ -24,11 +24,11 @@ class ExamsController < ApplicationController
   # POST /exams
   # POST /exams.json
   def create
-    @exam = Exam.new(exam_params)
+    @exam = @course.exams.new(exam_params)
 
     respond_to do |format|
       if @exam.save
-        format.html { redirect_to @exam, notice: 'Exam was successfully created.' }
+        format.html { redirect_to course_exam_path(@course,@exam), notice: 'Exam was successfully created.' }
         format.json { render :show, status: :created, location: @exam }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ExamsController < ApplicationController
   def update
     respond_to do |format|
       if @exam.update(exam_params)
-        format.html { redirect_to @exam, notice: 'Exam was successfully updated.' }
+        format.html { redirect_to course_exam_path(@course,@exam), notice: 'Exam was successfully updated.' }
         format.json { render :show, status: :ok, location: @exam }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ExamsController < ApplicationController
   def destroy
     @exam.destroy
     respond_to do |format|
-      format.html { redirect_to exams_url, notice: 'Exam was successfully destroyed.' }
+      format.html { redirect_to course_exams_url, notice: 'Exam was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +65,10 @@ class ExamsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_exam
       @exam = Exam.find(params[:id])
+    end
+
+    def set_course
+      @course = Course.find(params[:course_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
