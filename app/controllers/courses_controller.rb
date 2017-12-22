@@ -28,14 +28,20 @@ class CoursesController < ApplicationController
     }
     @promedios = {}
     @ausencias = {}
+    @aprobados = Hash.new(0)
+    @desaprobados = Hash.new(0)
     @course.exams.each { |e|
       if e.grades.size > 0 
         @promedios[e.id] = 0
         e.grades.each { |g|
           @hash_p[g.pupil.id][e.id] = g.grade
-          @promedios[e.id] += g.grade  
+          if g.grade >= e.min_grade
+            @aprobados[e.id] += 1
+          else
+            @desaprobados[e.id] += 1
+          end  
         }
-        @promedios[e.id] /= e.grades.size
+        @promedios[e.id] = (@aprobados[e.id] / e.grades.size.to_f * 100).round(2)
         @ausencias[e.id] = @course.pupils.size - e.grades.size 
       end
     }

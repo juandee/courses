@@ -31,7 +31,7 @@
 <% end %>
 <tr>
 	<tr></tr>
-	<td>Promedio</td>
+	<td>Porcentaje de aprobacion</td>
 <% @exams.each do |e| %>
 	<td><%= @promedios[e.id] %></td>
 <% end %>
@@ -40,6 +40,18 @@
 	<td>Ausentes</td>
 <% @exams.each do |e| %>
 	<td><%= @ausencias[e.id] %></td>
+<% end %>
+</tr>
+<tr>
+  <td>Aprobados</td>
+<% @exams.each do |e| %>
+  <td><%= @aprobados[e.id] %></td>
+<% end %>
+</tr>
+<tr>
+  <td>Desaprobados</td>
+<% @exams.each do |e| %>
+  <td><%= @desaprobados[e.id] %></td>
 <% end %>
 </tr>
 
