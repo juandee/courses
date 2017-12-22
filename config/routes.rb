@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   	devise_for :users
 	resources :courses do
+		get 'stats', on: :member
   		resources :exams do
   			resources :grades
   		end

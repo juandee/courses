@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :stats]
 
   # GET /courses
   # GET /courses.json
@@ -19,6 +19,27 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
+  end
+
+  def stats
+    @hash_p = {}
+    @course.pupils.each { |p|
+      @hash_p[p.id] = {:nombre => p.name + ' ' + p.surname} 
+    }
+    @promedios = {}
+    @ausencias = {}
+    @course.exams.each { |e|
+      if e.grades.size > 0 
+        @promedios[e.id] = 0
+        e.grades.each { |g|
+          @hash_p[g.pupil.id][e.id] = g.grade
+          @promedios[e.id] += g.grade  
+        }
+        @promedios[e.id] /= e.grades.size
+        @ausencias[e.id] = @course.pupils.size - e.grades.size 
+      end
+    }
+    @exams = @course.exams.sort_by {|e| e.date}
   end
 
   # POST /courses

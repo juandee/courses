@@ -1,0 +1,47 @@
+<table>
+  <thead>
+    <tr>
+      	<th>Alumnos</th>
+      	<% @exams.each do |e| %>
+       		<td> <%= e.title %></td>
+       	<% end %>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+<tbody>
+<% @hash_p.each do |k, p| %>
+      <tr>
+        <td><%= p[:nombre] %></td>
+        <% @exams.each do |e| %>
+        	<% if e.grades.size > 0%>
+        		<% if p[e.id].nil? %>
+        			<td> Ausente </td>
+        		<% else %>
+        			<% if p[e.id] >= e.min_grade %>
+        				<td> <%= p[e.id].to_s + '(Aprobado)' %></td>
+        			<% else %>
+        				<td> <%= p[e.id] %></td>
+        			<% end %>
+        		<% end %>
+        	<% else %>
+        		<td></td>
+        	<% end %>
+        <% end %>
+      	</tr>
+<% end %>
+<tr>
+	<tr></tr>
+	<td>Promedio</td>
+<% @exams.each do |e| %>
+	<td><%= @promedios[e.id] %></td>
+<% end %>
+</tr>
+<tr>
+	<td>Ausentes</td>
+<% @exams.each do |e| %>
+	<td><%= @ausencias[e.id] %></td>
+<% end %>
+</tr>
+
+</tbody>
+</table>
