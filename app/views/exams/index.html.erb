@@ -20,6 +20,7 @@
         <td><%= exam.title %></td>
         <td><%= exam.min_grade %></td>
         <td><%= exam.course.title %></td>
+        <td><%= link_to 'Ver notas', course_exam_grades_path(@course,exam) %></td>
         <td><%= link_to 'Mostrar', course_exam_path(@course,exam) %></td>
         <td><%= link_to 'Editar', edit_course_exam_path(@course,exam) %></td>
         <td><%= link_to 'Eliminar', course_exam_path(@course,exam), method: :delete, data: { confirm: 'Estas seguro?' } %></td>
@@ -30,4 +31,5 @@
 
 <br>
 
-<%= link_to 'Agregar examen', new_course_exam_path %>
+<%= link_to 'Agregar examen', new_course_exam_path %> |
+<%= link_to 'Volver al curso', course_path(@course) %>

@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.all.sort_by { |c| c.year}
   end
 
   # GET /courses/1
@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
   def stats
     @hash_p = {}
     @course.pupils.each { |p|
-      @hash_p[p.id] = {:nombre => p.name + ' ' + p.surname} 
+      @hash_p[p.id] = {:nombre => p.full_name} 
     }
     @promedios = {}
     @ausencias = {}
@@ -40,6 +40,7 @@ class CoursesController < ApplicationController
       end
     }
     @exams = @course.exams.sort_by {|e| e.date}
+    @hash_p = @hash_p.sort_by { |k, v| v[:nombre]}
   end
 
   # POST /courses

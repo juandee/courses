@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Nombre</th>
       <th>Apellido</th>
+      <th>Nombre</th>
       <th>Legajo</th>
       <th>Dni</th>
       <th>Email</th>
@@ -18,8 +18,8 @@
   <tbody>
     <% @pupils.each do |pupil| %>
       <tr>
-        <td><%= pupil.name %></td>
         <td><%= pupil.surname %></td>
+        <td><%= pupil.name %></td>
         <td><%= pupil.legajo %></td>
         <td><%= pupil.dni %></td>
         <td><%= pupil.email %></td>
@@ -34,4 +34,5 @@
 
 <br>
 
-<%= link_to 'Agregar alumno', new_course_pupil_path %>
+<%= link_to 'Agregar alumno', new_course_pupil_path %> |
+<%= link_to 'Volver al curso', course_path(@course) %>

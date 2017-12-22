@@ -4,7 +4,7 @@ class PupilsController < ApplicationController
   # GET /pupils
   # GET /pupils.json
   def index
-    @pupils = @course.pupils
+    @pupils = @course.pupils.sort_by { |p| p.surname } 
   end
 
   # GET /pupils/1
