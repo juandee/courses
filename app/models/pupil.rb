@@ -1,4 +1,5 @@
 class Pupil < ApplicationRecord
+  validates :name, :surname, :email, :legajo, :dni, presence: true
   belongs_to :course
   has_many :grades, dependent: :destroy
 
