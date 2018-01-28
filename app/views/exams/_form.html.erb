@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :date %>
+    <%= form.label :date, "Fecha" %>
     <%= form.date_select :date, id: :exam_date %>
   </div>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title, "Titulo" %>
     <%= form.text_field :title, id: :exam_title %>
   </div>
 
   <div class="field">
-    <%= form.label :min_grade %>
+    <%= form.label :min_grade, "Nota minima de aprobacion" %>
     <%= form.number_field :min_grade, id: :exam_min_grade %>
   </div>
 

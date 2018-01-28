@@ -21,6 +21,10 @@ class ExamsController < ApplicationController
   def edit
   end
 
+  def upload_grades
+    @pupils = @course.pupils
+  end
+
   # POST /exams
   # POST /exams.json
   def create
@@ -28,7 +32,7 @@ class ExamsController < ApplicationController
 
     respond_to do |format|
       if @exam.save
-        format.html { redirect_to course_exam_path(@course,@exam), notice: 'Exam was successfully created.' }
+        format.html { redirect_to course_exam_path(@course,@exam), notice: 'El examen se creo correctamente.' }
         format.json { render :show, status: :created, location: @exam }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class ExamsController < ApplicationController
   def update
     respond_to do |format|
       if @exam.update(exam_params)
-        format.html { redirect_to course_exam_path(@course,@exam), notice: 'Exam was successfully updated.' }
+        format.html { redirect_to course_exam_path(@course,@exam), notice: 'El examen se actualizo correctamente.' }
         format.json { render :show, status: :ok, location: @exam }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class ExamsController < ApplicationController
   def destroy
     @exam.destroy
     respond_to do |format|
-      format.html { redirect_to course_exams_url, notice: 'Exam was successfully destroyed.' }
+      format.html { redirect_to course_exams_url, notice: 'El examen fue eliminado.' }
       format.json { head :no_content }
     end
   end
