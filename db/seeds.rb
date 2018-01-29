@@ -90,3 +90,5 @@ course.pupils.each do |p|
 		grade = Grade.create(grade: rand(1..10), exam_id: e.id, pupil_id: p.id)
 	end
 end
+
+User.create(email: 'admin@admin.com', password: '123456')

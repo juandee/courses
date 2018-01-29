@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= form.label "Año" %>
-    <%= form.number_field :year, id: :course_year %>
+    <%= form.number_field :year, id: :course_year, min:"2016", placeholder:"2016 en adelante", required: true %>
   </div>
 
   <div class="field">
     <%= form.label "Titulo" %>
-    <%= form.text_field :title, id: :course_title %>
+    <%= form.text_field :title, id: :course_title, placeholder:"Ingrese un titulo", required:true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar cursada" %>
   </div>
 <% end %>

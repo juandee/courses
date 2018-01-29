@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :date, "Fecha" %>
-    <%= form.date_select :date, id: :exam_date %>
+    <%= form.date_select :date, id: :exam_date, required:true %>
   </div>
 
   <div class="field">
     <%= form.label :title, "Titulo" %>
-    <%= form.text_field :title, id: :exam_title %>
+    <%= form.text_field :title, id: :exam_title, placeholder:"Ingrese un titulo", required:true %>
   </div>
 
   <div class="field">
     <%= form.label :min_grade, "Nota minima de aprobacion" %>
-    <%= form.number_field :min_grade, id: :exam_min_grade %>
+    <%= form.number_field :min_grade, id: :exam_min_grade, min:"0", max:"10", required:true %>
   </div>
 
   <!-- <div class="field">
@@ -32,6 +32,6 @@
   </div> -->
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar examen" %>
   </div>
 <% end %>

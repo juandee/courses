@@ -1,16 +1,26 @@
 <p id="notice"><%= notice %></p>
+<h1>Datos de la cursada</h1>
 
-<p>
-  <strong>Año:</strong>
-  <%= @course.year %>
-</p>
-
-<p>
-  <strong>Titulo:</strong>
-  <%= @course.title %>
-</p>
-<%=link_to 'Ver alumnos', course_pupils_path(@course) %> |
-<%= link_to 'Ver examenes', course_exams_path(@course) %> |
-<%= link_to 'Ver resultados', stats_course_path(@course) %> |
-<!--<%= link_to 'Editar', edit_course_path(@course) %> | -->
+<table class="table table-bordered">
+	<thead>
+    <tr>
+      	<th class="bg-info text-white">Año</th>
+       	<th class="bg-info text-white">Titulo</th>
+       	<th class="bg-info text-white">Listado de alumnos</th>
+       	<th class="bg-info text-white">Instancias de examen</th>
+       	<th class="bg-info text-white">Resultados de la cursada</th>
+    </tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+  			<td><%= @course.year %></td>
+  			<td><%= @course.title %></td>
+  			<td><%=link_to 'Ver alumnos', course_pupils_path(@course) %></td>
+  			<td><%= link_to 'Ver examenes', course_exams_path(@course) %></td>
+  			<td><%= link_to 'Ver resultados', stats_course_path(@course) %></td>
+  		</tr>
+  	</tbody>
+</table>
+<div align="center">
 <%= link_to 'Atras', courses_path %>
+</div>

@@ -13,27 +13,27 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :pupil_name %>
+    <%= form.text_field :name, id: :pupil_name, placeholder:"Ingrese el nombre", required:true %>
   </div>
 
   <div class="field">
     <%= form.label :surname %>
-    <%= form.text_field :surname, id: :pupil_surname %>
+    <%= form.text_field :surname, id: :pupil_surname, placeholder:"Ingrese el apellido", required:true %>
   </div>
 
   <div class="field">
     <%= form.label :legajo %>
-    <%= form.text_field :legajo, id: :pupil_legajo %>
+    <%= form.text_field :legajo, id: :pupil_legajo, placeholder:"Ingrese el n° de legajo", required:true %>
   </div>
 
   <div class="field">
     <%= form.label :dni %>
-    <%= form.number_field :dni, id: :pupil_dni %>
+    <%= form.number_field :dni, id: :pupil_dni, min:"1", placeholder:"Ingrese el n° de dni", required:true %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.email_field :email, id: :pupil_email %>
+    <%= form.email_field :email, id: :pupil_email, placeholder:"Ingrese el email", required:true %>
   </div>
 
   <!--<div class="field">
@@ -42,6 +42,6 @@
   </div>-->
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar alumno" %>
   </div>
 <% end %>

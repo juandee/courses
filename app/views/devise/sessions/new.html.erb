@@ -1,14 +1,15 @@
+<div align="center">
 <h2>Iniciar sesion</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :password, "Contraseña" %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", required: true %>
   </div>
 
 <!--  <% if devise_mapping.rememberable? -%>
@@ -22,5 +23,5 @@
     <%= f.submit "Acceder", class: 'btn btn-success' %>
   </div>
 <% end %>
-
+</div>
 <%= render "devise/shared/links" %>

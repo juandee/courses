@@ -2,16 +2,16 @@
 
 <h1>Alumnos inscriptos</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th>Apellido</th>
-      <th>Nombre</th>
-      <th>Legajo</th>
-      <th>Dni</th>
-      <th>Email</th>
-      <th>Cursada</th>
-      <th colspan="3"></th>
+      <th class="bg-info text-white">Apellido</th>
+      <th class="bg-info text-white">Nombre</th>
+      <th class="bg-info text-white">Legajo</th>
+      <th class="bg-info text-white">Dni</th>
+      <th class="bg-info text-white">Email</th>
+      <th class="bg-info text-white">Cursada</th>
+      <th colspan="3" class="bg-info text-white"></th>
     </tr>
   </thead>
 
@@ -31,8 +31,7 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
+<div align="center">
 <%= link_to 'Agregar alumno', new_course_pupil_path %> |
 <%= link_to 'Volver al curso', course_path(@course) %>
+</div>

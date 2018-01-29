@@ -1,33 +1,32 @@
 <p id="notice"><%= notice %></p>
+<h1>Datos del alummno</h1>
+<table class="table table-bordered">
+    <tr>
+      <th>Nombre:</th>
+      <td><%= @pupil.name %></td>
+    </tr>
+    <tr>
+      <th>Apellido:</th>
+      <td><%= @pupil.surname %></td>
+    </tr>
+    <tr>
+      <th>Legajo:</th>
+      <td><%= @pupil.legajo %></td>
+    </tr>
+    <tr>
+      <th>Dni:</th>
+      <td><%= @pupil.dni %></td>
+    </tr>
+    <tr>
+      <th>Email:</th>
+      <td><%= @pupil.email %></td>
+    </tr>
+    <tr>
+      <th>Cursada:</th>
+      <td><%= @pupil.course.title %></td>
+    </tr>
+</table>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @pupil.name %>
-</p>
-
-<p>
-  <strong>Apellido:</strong>
-  <%= @pupil.surname %>
-</p>
-
-<p>
-  <strong>Legajo:</strong>
-  <%= @pupil.legajo %>
-</p>
-
-<p>
-  <strong>Dni:</strong>
-  <%= @pupil.dni %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @pupil.email %>
-</p>
-
-<p>
-  <strong>Cursada:</strong>
-  <%= @pupil.course.title %>
-</p>
-
+<div align="center">
 <%= link_to 'Atras', course_pupils_path(@pupil.course) %>
+</div>

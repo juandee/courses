@@ -2,13 +2,13 @@
 
 <h1>Calificaciones</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Alumno</th>
       <th>Examen</th>
       <th>Nota</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -18,15 +18,13 @@
         <td><%=  grade.pupil.name + ' ' + grade.pupil.surname %></td> 
         <td><%= grade.exam.title %></td>
         <td><%= grade.grade %></td>
-        <!--<td><%= link_to 'Mostrar', course_exam_grade_path(@exam.course,@exam,grade) %></td>-->
         <td><%= link_to 'Editar', edit_course_exam_grade_path(@exam.course,@exam,grade) %></td>
         <td><%= link_to 'Eliminar', course_exam_grade_path(@exam.course,@exam,grade), method: :delete, data: { confirm: 'Estas seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
+<div align="center">
 <!-- <%= link_to 'Agregar nota', new_course_exam_grade_path %> | -->
 <%= link_to 'Volver atras', course_exams_path(@exam.course) %>
+</div>
