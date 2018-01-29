@@ -43,9 +43,9 @@ exam_list.each do |exam|
 end
 
 #NOTAS
-course.pupils.each do |p|
-	course.exams.each do |e|
-		grade = Grade.create(grade: rand(1..10), exam_id: e.id, pupil_id: p.id)
+course.exams.each do |e|
+	course.pupils.sample(rand(5..course.pupils.size)).each do |p|
+		grade = Grade.create(grade: rand(0..10), exam_id: e.id, pupil_id: p.id)
 	end
 end
 
@@ -85,10 +85,11 @@ exam_list.each do |exam|
 end
 
 #NOTAS
-course.pupils.each do |p|
-	course.exams.each do |e|
+#course.pupils.each do |p|
+course.exams.each do |e|
+	course.pupils.sample(rand(5..course.pupils.size)).each do |p|
 		grade = Grade.create(grade: rand(1..10), exam_id: e.id, pupil_id: p.id)
 	end
 end
 
-User.create(email: 'admin@admin.com', password: '123456')
+User.create(email: 'admin@admin.com', password: 'myadmin1')

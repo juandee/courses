@@ -9,26 +9,24 @@
     </tr>
   </thead>
 <tbody>
-<% @hash_p.each do |k, p| %>
-      <tr>
-        <td><%= p[:nombre] %></td>
-        <% @exams.each do |e| %>
-        	<% if e.grades.size > 0%>
-        		<% if p[e.id].nil? %>
-        			<td> Ausente </td>
-        		<% else %>
-        			<% if p[e.id] >= e.min_grade %>
-        				<td> <%= p[e.id].to_s + '(Aprobado)' %></td>
-        			<% else %>
-        				<td> <%= p[e.id] %></td>
-        			<% end %>
-        		<% end %>
-        	<% else %>
-        		<td></td>
-        	<% end %>
-        <% end %>
-      </tr>
-<% end %>
+  <% @pupils = @course.pupils.sort_by { |p| p.surname}%>
+  <% @pupils.each do |pupil| %>
+    <tr>
+      <td><%= pupil.full_name %></td>
+      <% @course.exams.each do |exam| %>
+        <% if pupil.rindio?(exam) %>
+          <% if pupil.aprobo?(exam) %>
+            <td><%= pupil.nota(exam).to_s + ' ' + '(Aprobado)'%></td>
+          <% else %>
+            <td><%= pupil.nota(exam)%></td>
+          <% end %>
+        <% else %>
+          <td>Ausente</td> 
+        <%end%>     
+      <% end %>
+    </tr>
+  <% end %>
+
 <tr>
 	<tr></tr>
 	<td class="bg-primary text-white">Porcentaje de aprobacion</td>
@@ -60,3 +58,24 @@
 <div align="center">
 <%= link_to 'Volver al curso', course_path(@course) %>
 </div>
+
+
+<!--<% @hash_p.each do |k, p| %>                
+        <td><%= p[:nombre] %></td>
+        <% @exams.each do |e| %>
+          <% if e.grades.size > 0%>
+            <% if p[e.id].nil? %>
+              <td> Ausente </td>
+            <% else %>
+              <% if p[e.id] >= e.min_grade %>
+                <td> <%= p[e.id].to_s + '(Aprobado)' %></td>
+              <% else %>
+                <td> <%= p[e.id] %></td>
+              <% end %>
+            <% end %>
+          <% else %>
+            <td></td>
+          <% end %>
+        <% end %>
+      </tr>
+<% end %> -->
