@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	resources :courses do
 		  get 'stats', on: :member
   		resources :exams do
+        get 'gradesupload', on: :member
   			resources :grades
   		end
   		resources :pupils

@@ -1,10 +1,10 @@
 class ExamsController < ApplicationController
-  before_action :set_exam, only: [:show, :edit, :update, :destroy]
+  before_action :set_exam, only: [:show, :edit, :update, :destroy, :gradesupload]
   before_action :set_course
   # GET /exams
   # GET /exams.json
   def index
-    @exams = @course.exams
+    @exams = @course.exams.sort_by { |e| e.date }
   end
 
   # GET /exams/1
@@ -21,8 +21,8 @@ class ExamsController < ApplicationController
   def edit
   end
 
-  def upload_grades
-    @pupils = @course.pupils
+  def gradesupload
+    
   end
 
   # POST /exams

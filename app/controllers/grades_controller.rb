@@ -28,7 +28,7 @@ class GradesController < ApplicationController
 
     respond_to do |format|
       if @grade.save
-        format.html { redirect_to course_exam_grade_path(@exam.course,@exam,@grade), notice: 'Grade was successfully created.' }
+        format.html { redirect_to course_exam_grade_path(@exam.course,@exam,@grade), notice: 'La nota fue creada correctamente.' }
         format.json { render :show, status: :created, location: @grade }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class GradesController < ApplicationController
   def update
     respond_to do |format|
       if @grade.update(grade_params)
-        format.html { redirect_to course_exam_grade_path(@exam.course,@exam,@grade), notice: 'Grade was successfully updated.' }
+        format.html { redirect_to course_exam_grade_path(@exam.course,@exam,@grade), notice: 'La nota fue actualizada correctamente.' }
         format.json { render :show, status: :ok, location: @grade }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class GradesController < ApplicationController
   def destroy
     @grade.destroy
     respond_to do |format|
-      format.html { redirect_to course_exam_grades_url, notice: 'Grade was successfully destroyed.' }
+      format.html { redirect_to course_exam_grades_url, notice: 'La nota fue eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

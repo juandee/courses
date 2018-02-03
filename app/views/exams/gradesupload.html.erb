@@ -1,0 +1,37 @@
+<h1><%= @exam.title %></h1>
+
+<%= form_with(model:[@exam.course, @exam], method: :patch) do |form| %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th class="bg-info text-white">Alumno</th>
+      <th class="bg-info text-white">DNI</th>
+      <th class="bg-info text-white">Legajo</th>
+      <th class="bg-info text-white">Nota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pupils = @exam.course.pupils.sort_by { |p| p.surname} %>
+    <% @pupils.each do |pupil| %>
+      <tr>
+        <td><%= pupil.full_name %></td>
+        <td><%= pupil.dni %></td>
+        <td><%= pupil.legajo %></td>
+        <td>
+          <div>
+            <%= form.number_field :grade, :value => pupil.nota(@exam), class: 'form-control', min:"0", max:"10" %>
+            <%= form.hidden_field :pupil_id %>
+          </div>
+                  </td>
+                </tr>
+              <% end %>
+  </tbody>
+  </table>
+  <div class="actions" align="center">
+    <%= form.submit "Actualizar notas", class: 'btn btn-success' %>
+  </div>
+  <div align="center">
+    <%= link_to "Atras" ,course_exams_path(@course) %>
+  </div>
+<% end %> 

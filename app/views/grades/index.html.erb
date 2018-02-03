@@ -15,7 +15,7 @@
   <tbody>
     <% @grades.each do |grade| %>
       <tr>
-        <td><%=  grade.pupil.name + ' ' + grade.pupil.surname %></td> 
+        <td><%=  grade.pupil.full_name %></td> 
         <td><%= grade.exam.title %></td>
         <td><%= grade.grade %></td>
         <td><%= link_to 'Editar', edit_course_exam_grade_path(@exam.course,@exam,grade) %></td>
