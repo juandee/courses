@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 		  get 'stats', on: :member
   		resources :exams do
         get 'gradesupload', on: :member
+        patch 'gradesupdate', on: :member
   			resources :grades
   		end
   		resources :pupils

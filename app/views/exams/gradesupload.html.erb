@@ -1,6 +1,6 @@
 <h1><%= @exam.title %></h1>
 
-<%= form_with(model:[@exam.course, @exam], method: :patch) do |form| %>
+<%= form_with(model:[@exam.course,@exam], method: "patch") do |form| %>
 
 <table class="table table-bordered">
   <thead>
@@ -12,20 +12,22 @@
     </tr>
   </thead>
   <tbody>
-    <% @pupils = @exam.course.pupils.sort_by { |p| p.surname} %>
     <% @pupils.each do |pupil| %>
       <tr>
         <td><%= pupil.full_name %></td>
         <td><%= pupil.dni %></td>
         <td><%= pupil.legajo %></td>
-        <td>
-          <div>
-            <%= form.number_field :grade, :value => pupil.nota(@exam), class: 'form-control', min:"0", max:"10" %>
-            <%= form.hidden_field :pupil_id %>
-          </div>
-                  </td>
-                </tr>
-              <% end %>
+        <% if pupil.rindio?(@exam) %>
+          <td>
+            <input type="number" min="0" max="10" name="<%= "results[#{pupil.id}" %>" value="<%= pupil.nota(@exam) %>">
+          </td>
+        <% else %>
+          <td>
+            <input type="number" min="0" max="10" name="<%= "results[#{pupil.id}]" %>" value="">
+          </td>  
+        <% end %>
+      </tr>
+    <% end %>
   </tbody>
   </table>
   <div class="actions" align="center">
@@ -35,3 +37,4 @@
     <%= link_to "Atras" ,course_exams_path(@course) %>
   </div>
 <% end %> 
+

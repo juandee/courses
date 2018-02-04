@@ -22,7 +22,15 @@ class ExamsController < ApplicationController
   end
 
   def gradesupload
-    
+    @pupils = @exam.course.pupils.sort_by { |p| p.surname}
+  end
+
+  def gradesupdate
+    if update_grades(results_params)
+      redirect_to @course, notice: 'Las notas se actualizaron correctamente.'
+    else
+      render @course, notice: 'Ocurrio un error al intentar actualizar las notas'
+    end
   end
 
   # POST /exams
@@ -79,4 +87,9 @@ class ExamsController < ApplicationController
     def exam_params
       params.require(:exam).permit(:date, :title, :min_grade, :course_id)
     end
+
+    def results_params
+      params.require(:results)
+    end
+
 end

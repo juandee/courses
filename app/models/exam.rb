@@ -4,3 +4,15 @@ class Exam < ApplicationRecord
   belongs_to :course
   has_many :grades, dependent: :destroy
 end
+
+def update_grades(params)
+    params.each_pair do |key, val|
+      grade = grades.where(exam_id: id, pupil_id: key).first
+      if grade
+        grade.grade = val
+        grade.save
+      else
+        Grade.create(pupil_id: key, exam_id: id, grade: val)
+      end
+    end
+  end
