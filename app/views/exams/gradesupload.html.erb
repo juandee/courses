@@ -1,6 +1,6 @@
 <h1><%= @exam.title %></h1>
 
-<%= form_with(model:[@exam.course,@exam], method: "patch") do |form| %>
+<%= form_with(model:[@exam], url: gradesupdate_course_exam_path, method: :patch) do |form| %>
 
 <table class="table table-bordered">
   <thead>

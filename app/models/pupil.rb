@@ -14,7 +14,7 @@ class Pupil < ApplicationRecord
   end
 
   def rindio?(exam)
-  	!self.nota(exam).nil?
+  	!self.nota(exam).nil? || !self.nota(exam) == ""
   end
 
   def aprobo?(exam)

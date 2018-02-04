@@ -3,9 +3,8 @@ class Exam < ApplicationRecord
   validates :min_grade, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
   belongs_to :course
   has_many :grades, dependent: :destroy
-end
 
-def update_grades(params)
+  def update_grades(params)
     params.each_pair do |key, val|
       grade = grades.where(exam_id: id, pupil_id: key).first
       if grade
@@ -16,3 +15,6 @@ def update_grades(params)
       end
     end
   end
+  
+end
+

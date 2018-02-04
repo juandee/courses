@@ -1,5 +1,5 @@
 class ExamsController < ApplicationController
-  before_action :set_exam, only: [:show, :edit, :update, :destroy, :gradesupload]
+  before_action :set_exam, only: [:show, :edit, :update, :destroy, :gradesupload, :gradesupdate]
   before_action :set_course
   # GET /exams
   # GET /exams.json
@@ -26,10 +26,10 @@ class ExamsController < ApplicationController
   end
 
   def gradesupdate
-    if update_grades(results_params)
-      redirect_to @course, notice: 'Las notas se actualizaron correctamente.'
+    if @exam.update_grades(results_params)
+      redirect_to course_exam_grades_path(@course,@exam), notice: 'Las notas se actualizaron correctamente.'
     else
-      render @course, notice: 'Ocurrio un error al intentar actualizar las notas'
+      render gradesupload_course_exam_path(@course,@exam), notice: 'Ocurrio un error al intentar actualizar las notas'
     end
   end
 
