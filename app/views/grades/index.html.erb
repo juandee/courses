@@ -5,21 +5,22 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Alumno</th>
-      <th>Examen</th>
-      <th>Nota</th>
-      <th colspan="2"></th>
+      <th class="bg-info text-white">Alumno</th>
+      <th class="bg-info text-white">Examen</th>
+      <th class="bg-info text-white">Nota</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @grades.each do |grade| %>
+    <% @pupils.each do |p| %>
       <tr>
-        <td><%=  grade.pupil.full_name %></td> 
-        <td><%= grade.exam.title %></td>
-        <td><%= grade.grade %></td>
-        <td><%= link_to 'Editar', edit_course_exam_grade_path(@exam.course,@exam,grade) %></td>
-        <td><%= link_to 'Eliminar', course_exam_grade_path(@exam.course,@exam,grade), method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+        <td><%= p.full_name %></td> 
+        <td><%= @exam.title %></td>
+        <% if p.rindio?(@exam) %>
+          <td><%= p.nota(@exam) %></td>
+        <% else %>
+          <td>Ausente</td>
+        <% end%>  
       </tr>
     <% end %>
   </tbody>

@@ -4,7 +4,8 @@ class GradesController < ApplicationController
   # GET /grades
   # GET /grades.json
   def index
-    @grades = @exam.grades
+    @pupils = @exam.course.pupils.sort_by { |p| p.surname }
+    #@grades = @exam.grades
   end
 
   # GET /grades/1
