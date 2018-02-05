@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171222035747) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "courses", force: :cascade do |t|
     t.integer "year"
     t.string "title"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20171222035747) do
     t.date "date"
     t.string "title"
     t.integer "min_grade"
-    t.integer "course_id"
+    t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_exams_on_course_id"
@@ -31,8 +34,8 @@ ActiveRecord::Schema.define(version: 20171222035747) do
 
   create_table "grades", force: :cascade do |t|
     t.integer "grade"
-    t.integer "exam_id"
-    t.integer "pupil_id"
+    t.bigint "exam_id"
+    t.bigint "pupil_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exam_id"], name: "index_grades_on_exam_id"
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 20171222035747) do
     t.string "legajo"
     t.integer "dni"
     t.string "email"
-    t.integer "course_id"
+    t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_pupils_on_course_id"
@@ -66,4 +69,8 @@ ActiveRecord::Schema.define(version: 20171222035747) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "exams", "courses"
+  add_foreign_key "grades", "exams"
+  add_foreign_key "grades", "pupils"
+  add_foreign_key "pupils", "courses"
 end
