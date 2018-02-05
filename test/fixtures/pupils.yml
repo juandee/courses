@@ -1,17 +1,33 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  surname: MyString
-  legajo: MyString
-  dni: 1
-  email: MyString
+  name: 'Maria'
+  surname: 'Doyenart'
+  legajo: '11780/3'
+  dni: 35789514
+  email: 'maria@ruby.com'
+  course: one
+ 
+two:
+  name: 'Marcos'
+  surname: 'Sierra'
+  legajo: '12755/5'
+  dni: 36348779
+  email: 'marcos@ruby.com'
+  course: two
+ 
+three:
+  name: 'Clara'
+  surname: 'Garcia'
+  legajo: '10174/2'
+  dni: 39462177
+  email: 'clara@ruby.com'
   course: one
 
-two:
-  name: MyString
-  surname: MyString
-  legajo: MyString
-  dni: 1
-  email: MyString
-  course: two
+four:
+  name: 'Santiago'
+  surname: 'Lamas'
+  legajo: '11020/1'
+  dni: 32721224
+  email: 'santiago@ruby.com'
+  course: two 

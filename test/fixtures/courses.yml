@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  year: 1
-  title: MyString
+  year: 2016
+  title: 'TTPS-Ruby 2016'
 
 two:
-  year: 1
-  title: MyString
+  year: 2017
+  title: 'Taller de Teconolgias de Produccion de Software'
+
+three:
+  year: 2018
+  title: 'Ruby'

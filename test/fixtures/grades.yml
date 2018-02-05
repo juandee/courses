@@ -1,11 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  grade: 1
+  grade: 4
   exam: one
   pupil: one
 
 two:
-  grade: 1
-  exam: two
+  grade: 8
+  exam: one
   pupil: two
+
+three:
+  grade: 3
+  exam: one
+  pupil: three
+
+four:
+  grade: 9
+  exam: two
+  pupil: four
