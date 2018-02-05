@@ -44,7 +44,7 @@ En caso de setearlo, se configura ingresando al archivo `config/database.yml`, d
   	password: "password" #nombre de su contraseña postgresql
 ```
 
-Es posible que también requiere setear el `host`, que para correrlo localmente sería `locahost`, en el mismo archivo en el que seteó su usuario y contraseña:
+Es posible que también requiera setear el `host`, que para correrlo localmente sería `locahost`, en el mismo archivo en el que seteó su usuario y contraseña:
 
 ```yml
 	# ./config/database.yml
@@ -66,7 +66,7 @@ Una vez ya instaladas las dependencias del proyecto y generada la base de datos,
 	$ rails s
 ```
 
-Una vez cargado el servidor ya podrá acceder a `http://loaclhost:3000`, donde se accede a la página de login del sitio, en donde deberá conocer el usuario y contraseña para poder ingresar.
+Una vez cargado el servidor ya podrá acceder a `http://localhost:3000`, donde se accede a la página de login del sitio, en donde deberá conocer el usuario y contraseña para poder ingresar.
 
 ## Tests
 
